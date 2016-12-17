@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">Mobile Offloading</string>
+    <string name="server_url">https://104.154.187.219</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_user">User</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in</string>
+    <string name="error_incorrect_password">Login or password is incorrect</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="logout">Logout</string>
+    <string name="remote">Remote</string>
+    <string name="local">Local</string>
+    <string name="benchmark">Benchmark</string>
+
+    <!-- Facebook -->x
+    <string name="facebook_app_id">379043535778305</string>
+    <string name="fb_login_protocol_scheme">fb379043535778305</string>
+    <string name="dummy_content">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ut erat in ex lobortis interdum et sit amet odio. Aliquam maximus efficitur nisl, in posuere dui porta a. Nam non mollis nisl. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed fermentum sed tellus eleifend varius. Maecenas eros turpis, pharetra eu metus id, sodales consequat felis. Nunc vulputate vulputate tortor id fringilla. Cras ultrices lacinia libero sed luctus. Donec molestie tortor quis felis semper ultricies. Duis molestie pretium arcu vestibulum tempus. Nam maximus a leo ut dignissim. Duis facilisis, enim at vestibulum lacinia, ligula nisl scelerisque dui, vitae pellentesque nisl lorem quis metus.
+        Aliquam erat volutpat. Cras vitae augue non lectus posuere malesuada. Ut pharetra et purus molestie venenatis. Curabitur lacinia semper mauris. Vestibulum vel vulputate sapien. Nulla facilisi. Curabitur scelerisque tempus consequat. Vestibulum et erat et metus finibus pellentesque. Praesent bibendum sapien a ex venenatis, vel varius nisi dictum. Sed eu nibh non urna ultricies feugiat et quis eros. Mauris ac neque posuere, faucibus dolor a, scelerisque orci.
+    </string>
+</resources>

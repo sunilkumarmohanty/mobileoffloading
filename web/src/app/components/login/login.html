@@ -1,0 +1,37 @@
+<navbar></navbar>
+
+<!-- login -->
+<div class="block">
+  <div class="p-10"></div>
+  <div class="login-form">
+    <div class="data-field">
+      <div class="data-label">Username</div>
+      <input id="username" type="text" class="data-value data-input">
+    </div>
+    <div class="data-field">
+      <div class="data-label">Password</div>
+      <input id="password" type="password" class="data-value data-input" ng-keyup="$event.keyCode == 13 && vm.login()">
+    </div>
+    <div class="p-10"></div>
+    <div class="button-holder button-holder-sm button-holder-full">
+      <div class="button" ng-click="vm.login()">
+        <div class="text">Login</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- facebook login -->
+<div class="block">
+  <div class="button-holder button-holder-sm button-holder-full">
+    <div class="button" ng-click="vm.facebookLogin()">
+      <div class="facebook-icon"><img src="facebook.svg"></div>
+      <div class="text">Login with Facebook</div>
+    </div>
+  </div>
+</div>
+
+<!-- login error -->
+<div ng-if="vm.loginError !== ''" class="block">
+  <div class="login-error">{{vm.loginError}}</div>
+</div>

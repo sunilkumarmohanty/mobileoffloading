@@ -1,0 +1,23 @@
+# web-controller.yml
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  labels:
+    name: web
+  name: web-controller
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        name: web
+    spec:
+      containers:
+      - image: gcr.io/mcc-2016-g07-p2/backend:latest
+        imagePullPolicy: Always
+        name: web
+        ports:
+        - containerPort: 8443
+          name: https-server
+        - containerPort: 8080
+          name: http-server

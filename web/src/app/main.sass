@@ -1,0 +1,368 @@
+// compile
+
+@mixin flexbox()
+  display: -webkit-box
+  display: -moz-box
+  display: -ms-flexbox
+  display: -webkit-flex
+  display: flex
+
+@mixin flex($values)
+  -webkit-box-flex: $values
+  -moz-box-flex: $values
+  -webkit-flex: $values
+  -ms-flex: $values
+  flex: $values
+
+$blue: rgb(52, 152, 219)
+$green: rgb(46, 204, 113)
+$red: rgb(231, 76, 60)
+$white: rgb(255, 255, 255)
+$grey-light: rgb(250, 250, 250)
+$grey: rgb(230, 230, 230)
+$grey-dark: rgb(180, 180, 180)
+$black: rgb(0,0,0)
+$border-color: rgba(0, 0, 0, 0.07)
+
+$navbar-h: 50px
+
+$transition: 0.25s
+
+*, ::after, ::before
+  box-sizing: border-box
+
+html, body, div
+  padding: 0
+  margin: 0
+
+body
+  background: $grey-light
+  color: $black
+  font-family: 'Open Sans', sans-serif
+  font-size: 14px
+  padding-top: $navbar-h
+
+h2
+  margin: 10px 0
+  font-size: 12px
+  font-weight: 400
+  color: $grey
+
+.p-10
+  height: 10px
+  clear: both
+.p-100
+  height: 100px
+  clear: both
+
+.loader-backdrop
+  position: fixed
+  top: 0
+  right: 0
+  bottom: 0
+  left: 0
+  // i.e. transparent $grey-light:
+  background: rgba(250, 250, 250, 0.97)
+  z-index: 8000
+
+.separator
+  border-bottom: 1px solid $border-color
+
+.block
+  position: relative
+  padding: 10px
+  overflow: hidden
+
+.section-title
+  position: relative
+  padding: 10px
+  text-align: center
+  text-transform: uppercase
+  font-size: 10px
+  font-weight: 400
+  color: $black
+  letter-spacing: 3px
+  z-index: 1000
+
+.data-field
+  padding: 5px
+
+  .data-label
+    margin-bottom: 5px
+    font-size: 12px
+    color: $grey-dark
+
+  .data-value
+    &.data-image
+      img
+        max-width: 100%
+        border-radius: 10px
+
+    &.data-input
+      width: 100%
+      padding: 10px
+      background: none
+      border-radius: 0
+      border: none
+      border-bottom: 1px solid $border-color
+
+      &:focus
+        outline: 0
+        border-color: $blue
+
+    &.data-table
+      font-size: 12px
+
+      .table-row
+        +flexbox()
+        border: 1px solid $border-color
+
+        &:not(:first-child)
+          border-top: none
+
+        &.sub
+          .header
+            font-weight: 400
+
+      .table-cell
+        align-items: stretch
+        +flexbox()
+        align-items: center
+        +flex(1)
+        padding: 5px
+
+        &.header
+          font-weight: 700
+
+        &:not(:first-child)
+          justify-content: center
+          border-left: 1px solid $border-color
+
+
+.selected-previews
+  position: relative
+  overflow-x: scroll
+  white-space: nowrap
+
+  img
+    display: inline-block
+    max-height: 100px
+    max-width: 100px
+    margin: 0 5px
+    border-radius: 10px
+
+    &:first-child
+      margin-left: 0
+    &:last-child
+      margin-right: 0
+
+.button-holder
+  position: relative
+  float: left
+  width: 50%
+
+  &::before
+    display: block
+    content: ''
+    padding-top: 62.5%
+
+  .button
+    position: absolute
+    top: 5px
+    right: 5px
+    bottom: 5px
+    left: 5px
+    border-radius: 10px
+    background: $white
+    color: $black
+    box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.10)
+
+    .facebook-icon
+      position: absolute
+      top: 7px
+      right: 7px
+      height: 28px
+      width: 28px
+
+    .icon
+      position: absolute
+      top: 14px
+      right: 16px
+      font-size: 12px
+      line-height: 12px
+      transition: color $transition
+
+    .text
+      position: absolute
+      bottom: 14px
+      left: 16px
+      right: 16px
+      line-height: 14px
+
+    label
+      position: absolute
+      top: 0
+      right: 0
+      bottom: 0
+      left: 0
+
+      input
+        display: none
+
+
+  &.button-holder-sm
+    &::before
+      padding-top: 52px
+
+    .button
+      .text
+        text-align: center
+
+      .icon
+        top: 9px
+
+  &.button-holder-full
+    width: 100%
+
+.mode-bg
+  position: absolute
+  height: 54px
+  width: 100%
+  margin: -10px
+  z-index: 0
+  transition: background $transition
+
+.mode-tabs
+  margin: -200px -15px 0
+  padding-top: 200px
+  letter-spacing: 1px
+
+  .tab
+    float: left
+    width: 33.33%
+    padding: 20px 0
+    margin-top: 10px
+    text-align: center
+    font-size: 12px
+    transition: background $transition
+
+    &:first-child
+      border-bottom-left-radius: 0
+
+    &:last-child
+      border-bottom-right-radius: 0
+
+    &.selected
+      box-shadow: 0 3px 20px 0 rgba(0, 0, 0, 0.20)
+
+    &:not(.selected)
+      background: transparent
+
+.action-buttons
+  padding: 10px 0
+  letter-spacing: 1px
+
+ul.history
+  padding: 0
+  list-style: none
+
+  li
+    position: relative
+    padding: 10px 5px 10px 65px
+    width: 100%
+    border-bottom: 1px solid $border-color
+
+    &:first-child
+      padding-top: 0
+
+      .thumbnail
+        top: 0
+
+    &:last-child
+      border: 0
+      padding-bottom: 0
+
+    .thumbnail
+      position: absolute
+      top: 10px
+      left: 5px
+      height: 60px
+      width: 60px
+      border-radius: 10px
+      background: $grey
+      overflow: hidden
+
+      img
+        object-fit: cover
+        width: 100%
+        height: 100%
+
+
+    .short
+      min-height: 60px
+      padding: 0 10px
+      font-size: 12px
+
+.navbar
+  position: fixed
+  top: 0
+  right: 0
+  left: 0
+  height: $navbar-h
+  line-height: $navbar-h
+  padding: 0 (10px + $navbar-h)
+  background: $white
+  box-shadow: 0 3px 20px 0 rgba(0, 0, 0, 0.14)
+  z-index: 9000
+
+  .left, .right
+    position: absolute
+    top: 0
+    height: $navbar-h
+    width: $navbar-h
+    text-align: center
+
+    i
+      line-height: inherit
+    img
+      vertical-align: middle
+
+  .left
+    left: 0
+
+  .right
+    right: 0
+
+  .title
+    text-align: center
+    font-weight: 700
+    letter-spacing: 2px
+
+.login-error
+  padding: 10px
+  color: $red
+  font-weight: 700
+  font-size: 14px
+  text-align: center
+
+.green
+  color: $green !important
+.blue
+  color: $blue !important
+.red
+  color: $red !important
+.white
+  color: $white !important
+.green-border
+  border: 1px solid $green !important
+.blue-border
+  border: 1px solid $blue !important
+.green-bg
+  background: $green !important
+  color: $white !important
+.blue-bg
+  background: $blue !important
+  color: $white !important
+.red-bg
+  background: $red !important
+  color: $white !important

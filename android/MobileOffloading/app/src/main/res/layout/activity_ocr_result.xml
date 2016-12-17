@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_ocr_result"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="fi.aalto.mobileoffloading.OcrResultActivity">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/activity_toolbar_app" />
+
+    <com.daimajia.slider.library.SliderLayout
+        android:id="@+id/slider"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_below="@+id/toolbar"
+        app:auto_cycle="false" />
+
+    <TextView
+        android:id="@+id/result_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/slider"
+        android:layout_marginTop="10dp"
+        android:scrollbars="vertical"
+        android:text="@string/dummy_content" />
+
+</RelativeLayout>

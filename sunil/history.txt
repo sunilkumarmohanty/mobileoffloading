@@ -1,0 +1,649 @@
+    1  wget -gO- https://get.docker.com/ | sh
+    2  wget -qO- https://get.docker.com/ | sh
+    3  sudo usermod -aG docker shoaib
+    4  docker run hello-world
+    5  docker version
+    6  sudo docker run hello-world
+    7  docker run hello-world
+    8  docker images
+    9  docker images -a
+   10  docker stop c54a2cc56cbb
+   11  docker ps
+   12  docker run ubuntu:14.04 echo "my first contianer"
+   13  docker images
+   14  docker ps
+   15  docker run ubuntu ps ax
+   16  docker run -i -t ubuntu:14.04 bin/bash
+   17  docker run -d ubuntu:14.04 bin/bash
+   18  docker ps
+   19  docker run -d ubuntu:14.04 bin/bash
+   20  docker run -d ubuntu:14.04 ping "hello"
+   21  docker run -d ubuntu ping "hello"
+   22  docker run -d ubuntu:14.04 echo "hello"
+   23  docker ps
+   24  docker run -d ubuntu:14.04 ping 127.0.0.1 -c 50
+   25  docker ps
+   26  docker ps -a
+   27  docker run -i -t ubuntu:14.04 /bin/bash
+   28  docker ps -a
+   29  docker commit d9e5a529999d shoaib/vim:1.0
+   30  docker images
+   31  docker run -i-t shoaib/vim:1.0
+   32  docker run -i -t shoaib/vim:1.0 bin/bash
+   33  mkdir test
+   34  cd test/
+   35  vim Dockerfile
+   36  vim
+   37  apt-get install vim
+   38  apt-get update
+   39  cd
+   40  apt-get install vim
+   41  apt-get update
+   42  sudo apt-get update
+   43  sudo apt-get install vim
+   44  vim Dockerfile
+   45  cd test/
+   46  docker build -t shoiab/vim:1.1 .
+   47  docker run shoaib/vim:1.1
+   48  docker images
+   49  docker run shoiab/vim:1.1
+   50  docker rmi shoiab/vim
+   51  docker rmi shoiab/vim:1.1
+   52  docker ps
+   53  docker rmi shoiab/vim:1.1
+   54  docker ps -a
+   55  docker stop 75bcc4626e2f
+   56  docker rmi shoiab/vim:1.1
+   57  docker rmi -f shoiab/vim:1.1
+   58  docker packages
+   59  docker images
+   60  docker build -t shoaib/vim:1.1 .
+   61  docker images
+   62  docker run shoaib/vim:1.1
+   63  docker ps
+   64  docker tag shoaib/vim:1.1 khangee504/test:1.0
+   65  docker push khangee504/test:1.0
+   66  docker images
+   67  docker push khangee504/test:.0
+   68  docker push khangee504/test:1.0
+   69  docker push khangee504/test
+   70  sudo docker push khangee504/test
+   71  cd 
+   72  ls
+   73  cd 
+   74  vim ~/.docker/config.json
+   75  docker login --username=khangee504 --email=khangee504@yahoo.com
+   76  docker images
+   77  docker push khangee504/test:1.0
+   78  docker run -d -P tomcat
+   79  docker ps
+   80  docker logs 279ab4a6d6bf 
+   81  docker logs -f --tail 5279ab4a6d6bf 
+   82  docker logs -f --tail 5 279ab4a6d6bf 
+   83  docker stop 279ab4a6d6bf 
+   84  docker run -d -P -v /container/logs/nginx:/logs nginx
+   85  docker ps
+   86  dokcer stop caf6a56fbcd7
+   87  dokcer run -d -P -v /logs:/var/log/nginx nginx
+   88  docker run -d -P -v /logs:/var/log/nginx nginx
+   89  docker ps
+   90  docker run -d -P -v /logs/nginx:/var/log/nginx nginx
+   91  docker ps
+   92  cd logs/nginx/
+   93  ls
+   94  cd
+   95  docker run -P nginx /bin/bash
+   96  docker run -P nginx
+   97  docker ps
+   98  docker stop angry_raman 
+   99  docker stop lonely_jennings 
+  100  docker stop lonely_stonebraker 
+  101  docker ps
+  102  docker run -P nginx
+  103  docker run -d -P nginx
+  104  docker ps
+  105  docker logs jolly_hypatia 
+  106  docker stop jolly_hypatia 
+  107  docker run -d -P -v /logs/nginx:/var/log/nginx nginx /bin/bash
+  108  docker ps
+  109  docker run -d -P -v /logs/nginx:/var/log/nginx nginx
+  110  docker ps
+  111  docker stop sleepy_stallman 
+  112  docker run -d -P -v /logs/nginx:/var/log/nginx/ nginx
+  113  docker ps
+  114  docker run -d -P -v /logs/nginx:/var/log/nginx/ nginx /bin/bash
+  115  docker ps
+  116  docker run -d -P -v /logs/nginx:/var/log/nginx nginx:1.7
+  117  docker ps
+  118  docker run -d -P -v /Desktop/logs/nginx:/var/log/nginx nginx:1.7
+  119  docker ps
+  120  docker inspect hungry_murdock | grep IPAddress
+  121  docker inspect hungry_murdock | grep PID
+  122  docker inspect hungry_murdock | grep Pid
+  123  docker inspect hungry_murdock | grep pid
+  124  docker inspect hungry_murdock
+  125  ls etc
+  126  ls /etc
+  127  ls /etc/default/docker 
+  128  cd /etc/default/docker 
+  129  vim /etc/default/docker 
+  130  clear
+  131  mkdir base
+  132  cd base
+  133  git
+  134  git clone https://github.com/ijason/NodeJS-Sample-App.git app
+  135  mv app/EmployeeDB/* app/
+  136  sed -i -- 's/localhost/mongo/g' ./app/app.js
+  137  touch Dockerfile
+  138  ls
+  139  docker build -t myapp .
+  140  docker run myapp
+  141  curl https://sdk.cloud.google.com | bash
+  142  gcloud auth login
+  143  gcloud components update
+  144  docker tag myapp tutorialproject-150815/myapp
+  145  gcloud docker push tutorialproject-150815/myapp
+  146  docker tag myapp gcr.io/tutorialproject-150815/myapp
+  147  gcloud docker push gcr.io/tutorialproject-150815/myapp
+  148  cd base/
+  149  ls
+  150  gcloud container clusters get-credentials mean-cluster
+  151  gcloud config set compute/zone us-central1-f
+  152  gcloud container clusters get-credentials mean-cluster
+  153  gcloud config set project tutorialproject-150815
+  154  gcloud container clusters get-credentials mean-cluster
+  155  gcloud components install kubectl
+  156  kubectl create -f db-controller.yml
+  157  gcloud container clusters get-credentials mean-cluster
+  158  kubectl create -f db-controller.yml
+  159  kubectl
+  160  cd base
+  161  kubectl create -f db-controller.yml
+  162  gcloud auth application-default login
+  163  kubectl create -f db-controller.yml
+  164  kubectl create -f db-service.yml
+  165  kubectl get pods
+  166  kubectl create -f web-controller.yml
+  167  kubectl create -f web-service.yml
+  168  kubectl get pods
+  169  gcloud compute forwarding-rules list
+  170  kubectl get pods
+  171  cd..
+  172  cd ..
+  173  mkdir demo
+  174  cd demo
+  175  git clone https://github.com/leportlabs/mongo-k8s-sidecar.git
+  176  cd mongo-k8s-sidecar/example/
+  177  make count
+  178  history
+  179  gcloud container clusters get-credentials mean-cluster
+  180  kubectl create -f mongo-controller-template.yaml 
+  181  kubectl create -f mongo-controller-1.yaml 
+  182  kubectl create -f mongo-service-1.yaml 
+  183  make count
+  184  kubectl create -f mongo-controller-2.yaml 
+  185  kubectl create -f mongo-service-2.yaml 
+  186  make count
+  187  kubectl get pods
+  188  kubectl create -f web-controller.yml
+  189  kubectl create -f web-service.yml
+  190  kubectl get pods
+  191  make count
+  192  kubectl get pods
+  193  gcloud compute forwarding-rules list
+  194  kubectl get pods
+  195  kubectl delete rc web-controller-zjlfa
+  196  kubectl delete rc web-controller-zpbw5
+  197  kubectl delete rc web-controller
+  198  kubectl get pods
+  199  kubectl delete rc mongo-1
+  200  kubectl delete rc mongo-2
+  201  kubectl create -f mongo-controller-1.yaml 
+  202  kubectl create -f mongo-service-1.yaml 
+  203  kubectl get pods
+  204  kubectl create -f web-controller.yml 
+  205  kubectl get pods
+  206  kubectl delete mongo-1
+  207  kubectl delete rc mongo-1
+  208  kubectl create -f mongo-controller-1.yaml 
+  209  kubectl get pods
+  210  gcloud compute forwarding-rules 
+  211  gcloud compute forwarding-rules list
+  212  kubectl delete rc web-controller.yml 
+  213  kubectl delete rc web-controller
+  214  kubectl create -f web-controller.yml 
+  215  kubectl get pods
+  216  gcloud compute forwarding-rules list
+  217  kubectl delete rc web-controller
+  218  kubectl get pods
+  219  kubectl create -f web-controller.yml 
+  220  kubectl get pods
+  221  gcloud compute forwarding-rules list
+  222  kubectl delete rc web-controller
+  223  kubectl get pods
+  224  kubectl create -f web-controller.yml 
+  225  kubectl get pods
+  226  gcloud compute forwarding-rules list
+  227  mkdir MCC
+  228  cd MCC
+  229  git clone git@git.niksula.hut.fi:cs-e4100/mcc-2016-g07-p2.git
+  230  git login
+  231  git clone git@git.niksula.hut.fi:cs-e4100/mcc-2016-g07-p2.git
+  232  ssh-keygen -t rsa -b 4096 -C "a@b.com"-
+  233  cat ~/.ssh/id_rsa.pub
+  234  git clone git@git.niksula.hut.fi:cs-e4100/mcc-2016-g07-p2.git
+  235  git global
+  236  git --help
+  237  cd mcc-2016-g07-p2/
+  238  git status
+  239  ls
+  240  $ docker build -t project2v1.0 .
+  241  $ docker build -t project2v1 .
+  242  docker build -t project2v1.0 .
+  243  docker run project2v1.0
+  244  cd backend/
+  245  cd ..
+  246  npm start
+  247  sudo apt install npm
+  248  apt-get update
+  249  sudo apt-get update
+  250  sudo apt install npm
+  251  npm start
+  252  npm install
+  253  npm start
+  254  node
+  255  sudo apt-get install node
+  256  sudo apt install node
+  257  sudo apt-get update
+  258  apt-get node
+  259  apt-get nodejs
+  260  apt-get install nodejs
+  261  sudo apt-get install nodejs
+  262  sudo apt-get install npm
+  263  npm install
+  264  cd MCC/
+  265  cd mcc-2016-g07-p2/
+  266  npm install
+  267  clear
+  268  npm install
+  269  node -v
+  270  sudo apt-get install nodejs
+  271  node -v
+  272  sudo apt-get update
+  273  sudo apt-get install nodejs
+  274  sudo apt-get install npm
+  275  node
+  276  nodejs
+  277  node -v
+  278  nodejs -v
+  279  sudo apt-get update
+  280  sudo rm -rf /var/lib/apt/lists/*
+  281  sudo apt-get update
+  282  sudo apt-get remove nodejs
+  283  sudo apt-get remove npm
+  284  npm
+  285  clear
+  286  curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
+  287  sudo apt-get install -y nodejs
+  288  node
+  289  nodejs
+  290  sudo apt-get install -y build-essential
+  291  node
+  292  sudo apt-get clean
+  293  sudo apt-get update
+  294  sudo rm -rf /var/lib/apt/lists/*
+  295  sudo apto-get clean
+  296  sudo apt-get clean
+  297  sudo apt-get update
+  298  sudo sed -i -re 's/\w+\.archive\.ubuntu\.com/archive.ubuntu.com/g' /etc/apt/sources.list
+  299  sudo apt-get update
+  300  sudo apt-get install nodejs
+  301  node
+  302  sudo apt-get install npm
+  303  sudo apt-get install node-legacy
+  304  sudo apt-get install nodejs-legacy
+  305  node
+  306  npm install
+  307  npm start
+  308  ls
+  309  docker build .
+  310  docker run 
+  311  docker ps
+  312  docker rmi $(dokcer images -q)
+  313  docker rmi $(docker images -q)
+  314  clear
+  315  docker rmi $(docker images -q) -f
+  316  docker stop $(docker ps -a -q)
+  317  docker build -t shoaib/mcc .
+  318  docker run shoaib/mcc
+  319  docker rmi $(dokcer images -q)
+  320  docker stop $(docker ps -a -q)
+  321  docker ps
+  322  docker ps -a
+  323  docker build -t shoaib/mcc .
+  324  docker run shoaib/mcc
+  325  docker rmi $(dokcer images -q)
+  326  docker stop $(docker ps -a -q)
+  327  npm install
+  328  npm start
+  329  docker ps
+  330  docker build -t shoaib/mcc .
+  331  docker run shoaib/mcc
+  332  docker ps
+  333  docker rmi $(dokcer images -q)
+  334  docker stop $(docker ps -a -q)
+  335  docker build -t shoaib/mcc .
+  336  docker run shoaib/mcc
+  337  docker build -t shoaib/mcc .
+  338  docker run shoaib/mcc
+  339  gcloud auth login
+  340  gcloud config set project mcc-p2
+  341  gcloud components update
+  342  gcloud docker push gcr.io/mcc-p2/shoaib/mcc
+  343  docker tag shoaib/mcc gcr.io/mcc-p2/backend
+  344  gcloud docker push gcr.io/mcc-p2/backend
+  345  gcloud auth login
+  346  gcloud docker push gcr.io/mcc-p2/backend
+  347  gcloud config set project mcc-2016-g07-p2
+  348  gcloud docker push gcr.io/mcc-p2/backend
+  349  docker tag shoaib/mcc gcr.io/mcc-2016-g07-p2/backend
+  350  gcloud docker push gcr.io/mcc-2016-g07-p2/backend
+  351  gcloud container   --project "temporal-loop-94520"   clusters create "mean-cluster"   --zone "us-central1-f"   --machine-type "n1-standard-1"   --num-nodes "2"   --network "default"
+  352  gcloud auth login
+  353  gcloud container clusters get-credentials mean-cluster
+  354  cd MCC/mcc-2016-g07-p2/
+  355  cd backend/deploy/
+  356  make count
+  357  make add-replica DISK_SIZE=200GB ZONE=us-central1-f
+  358  make count
+  359  kubectl get pods
+  360  gcloud container clusters get-credentials mean-cluster
+  361  gcloud config set container/use_client_certificate True
+  362  gcloud container clusters get-credentials mean-cluster
+  363  make count
+  364  make add-replica DISK_SIZE=200GB ZONE=us-central1-f
+  365  make count
+  366  kubectl get pods
+  367  make count
+  368  make add-replica DISK_SIZE=200GB ZONE=us-central1-f
+  369  make count
+  370  kubectl get pods
+  371  make count
+  372  make add-replica DISK_SIZE=200GB ZONE=us-central1-f
+  373  clear
+  374  make add-replica DISK_SIZE=200GB ZONE=us-central1-f
+  375  clear
+  376  make add-replica DISK_SIZE=200GB ZONE=us-central1-f
+  377  kubectl get pods
+  378  make count
+  379  clear
+  380  make add-replica DISK_SIZE=200GB ZONE=us-central1-f
+  381  make count
+  382  https://github.com/leportlabs/mongo-k8s-sidecar.git
+  383  git clone https://github.com/leportlabs/mongo-k8s-sidecar.git
+  384  cd mongo-k8s-sidecar/
+  385  cd example/
+  386  make add-replica DISK_SIZE=200GB ZONE=us-central1-f
+  387  make count
+  388  make add-replica DISK_SIZE=200GB ZONE=us-central1-f
+  389  cd ..
+  390  kubectl get pods
+  391  kubectl create -f web-controller.yml
+  392  kubectl create -f web-service.yml
+  393  kubectl get pods
+  394  gcloud compute forwarding-rules list
+  395  kubectl logs web-controller-zqy04
+  396  clear
+  397  kubectl get pods
+  398  gcloud compute forwarding-rules list
+  399  kubectl logs web-controller-zqy04
+  400  cd ..
+  401  git status
+  402  git add .
+  403  git commit -am "added docker file and updated mongodb path"
+  404  git config --global user.email muhammad.s.khan@aalto.fi
+  405  git config --global user.name khanm12
+  406  git commit -am "added docker file and updated mongodb path"
+  407  git pull origin master
+  408  cd cd MCC/mcc-2016-g07-p2/
+  409  cd MCC/mcc-2016-g07-p2/
+  410  git status
+  411  git pull origin master
+  412  git commit -am "added docker file and updated mongodb path"
+  413  npm install
+  414  npm start
+  415  npm install
+  416  npm start
+  417  git pull origin master
+  418  node -v
+  419  nodejs -v
+  420  sudo apt-get update nodejs
+  421  sudo apt-get install nodejs
+  422  clear
+  423  npm start
+  424  npm install
+  425  npm start
+  426  sudo apt-get install npm
+  427  sudo npm install n -g
+  428  sudo n latest
+  429  n ls
+  430  node -v
+  431  n -v
+  432  sudo n 7.2.0
+  433  node -v
+  434  node latest
+  435  npm start
+  436  curl -sL https://deb.nodesource.com/setup_7.x | sudo -E bash -
+  437  sudo apt-get install -y nodejs
+  438  node -v
+  439  npm install
+  440  npm start
+  441  node -v
+  442  nodejs -v
+  443  cd MCC/mcc-2016-g07-p2/
+  444  npm start
+  445  clear
+  446  npm install
+  447  npm start
+  448  docker ps
+  449  docker build -t gcr.io/mcc-2016-g07-p2/backend:2 .
+  450  gcloud docker push gcr.io/mcc-2016-g07-p2/backend:2
+  451  kubectl rolling-update web-controller --image=gcr.io/mcc-2016-g07-p2/backend:2
+  452  kubectl get pods
+  453  gcloud compute forwarding-rule list
+  454  gcloud compute forwarding-rules list
+  455  kubectl getpods
+  456  kubectl get pods
+  457  docker logs web-controller
+  458  docker logs web-controller-2a4f62c86eaf3682bbc129912bfa15e6
+  459  docker logs web-controller-2a4f62c86eaf3682bbc129912bfa15e6-5ekjx
+  460  kubectl logs web-controller-2a4f62c86eaf3682bbc129912bfa15e6-5ekjx
+  461  git status
+  462  git add .
+  463  git pull origin master
+  464  git status
+  465  git add .
+  466  git commit -am "commented out the https server for testing"
+  467  git pull origin master
+  468  cd MCC/mcc-2016-g07-p2/
+  469  git status
+  470  git pull origin master
+  471  cd MCC/mcc-2016-g07-p2/
+  472  git status
+  473  git pull origin master
+  474  cd MCC/mcc-2016-g07-p2/
+  475  git status
+  476  git pull origin master
+  477  git status
+  478  git push origin master
+  479  kubectl get pods
+  480  kubectl logs web-controller
+  481  kubectl logs web-controller-2a4f62c86eaf3682bbc129912bfa15e6-5ekjx
+  482  clear
+  483  npm install
+  484  mongo
+  485  sudo apt-get install mongo
+  486  npm start
+  487  docker build -t gcr.io/mcc-2016-g07-p2/backend:3 .
+  488  gcloud docker push gcr.io/mcc-2016-g07-p2/backend:3
+  489  kubectl rolling-update web-controller --image=gcr.io/mcc-2016-g07-p2/backend:3
+  490  kubectl get pods
+  491  kubectl logs web-controller-4e808c659341806f6930c485e3519d6c-cdx9p 
+  492  gcloud compute forwarding-rules list
+  493  kubectl get services web
+  494  kubectl describe services web
+  495  kubectl config view
+  496  clear
+  497  gcloud container   --project "temporal-loop-94520"   clusters create "mean-cluster"   --zone "us-central1-f"   --machine-type "n1-standard-1"   --num-nodes "2" \
+  498  gcloud container --project "mcc-2016-g07-p2" clusters create "mean-cluster" --zone "us-central1-f" --machine-type "n1-standard-1" --num-nodes "2" --network "default"
+  499  kubectl config view
+  500  cd ..
+  501  cd deploy/mongo-k8s-sidecar/example/
+  502  make add-replica 200GB us-central1-f
+  503  gcloud docker push gcr.io/mcc-2016-g07-p2/backend:3
+  504  cd ..
+  505  kubectl create -f web-controller.yml
+  506  kubectl create -f web-service.yml
+  507  kubectl get pods
+  508  kubectl create -f web-controller.yml
+  509  kubectl create -f web-service.yml
+  510  kubectl get pods
+  511  clear
+  512  cd ..
+  513  git clone https://github.com/ijason/NodeJS-Sample-App.git app
+  514  mv app/EmployeeDB/* app/
+  515  sed -i -- 's/localhost/mongo/g' ./app/app.js
+  516  cd app/
+  517  docker build -t gcr.io/mcc-2016-g07-p2/myapp
+  518  docker build -t gcr.io/mcc-2016-g07-p2/myapp .
+  519  ls
+  520  docker build -t gcr.io/mcc-2016-g07-p2/myapp .
+  521  cd ..
+  522  docker build -t gcr.io/mcc-2016-g07-p2/myapp .
+  523  gcloud docker push gcr.io/mcc-2016-g07-p2/myapp
+  524  cd ..
+  525  cd Example/
+  526  docker rmi $(docker images -f dangling=true -q)
+  527  docker rmi -f $(docker images -f dangling=true -q)
+  528  docker build -t gcr.io/mcc-2016-g07-p2/myapp .
+  529  gcloud docker push gcr.io/mcc-2016-g07-p2/myapp
+  530  clear
+  531  gcloud container --project "mcc-2016-g07-p2" clusters create "mean-cluster" --zone "us-central1-f" --machine-type "n1-standard-1" --num-nodes "2" --network "default"
+  532  cd ..
+  533  cd MCC/deploy/mongo-k8s-sidecar/example/
+  534  make add-replica DISK_SIZE=200GB ZONE=us-central1-f
+  535  cd ..
+  536  kubectl create -f web-controller.yml
+  537  kubectl create -f web-service.yml
+  538  kubectl get pods
+  539  gcloud compute forwarding-rules list
+  540  kubectl get services web
+  541  cd ..
+  542  cd Example/
+  543  docker build -t gcr.io/mcc-2016-g07-p2/myapp .
+  544  docker build -t gcr.io/mcc-2016-g07-p2/myapp:1 .
+  545  gcloud docker push gcr.io/mcc-2016-g07-p2/myapp:1
+  546  clear
+  547  kubectl get pods
+  548  kubectl rolling-update web-controller --image=gcr.io/mcc-2016-g07-p2/myapp:1
+  549  kubectl get pods
+  550  cd ..
+  551  cd MCC/mcc-2016-g07-p2/
+  552  docker rmi -f $(docker images -f dangling=true -q)
+  553  docker build -t gcr.io/mcc-2016-g07-p2/backend .
+  554  npm install
+  555  npm start
+  556  npm install
+  557  docker build -t gcr.io/mcc-2016-g07-p2/backend .
+  558  gcloud docker push gcr.io/mcc-2016-g07-p2/backend
+  559  gcloud container --project "mcc-2016-g07-p2" clusters create "mean-cluster" --zone "us-central1-f" --machine-type "n1-standard-1" --num-nodes "2" --network "default"
+  560  cd ..
+  561  cd deploy/mongo-k8s-sidecar/example/
+  562  make add-replica DISK_SIZE=200GB ZONE=us-central1-f
+  563  cd ..
+  564  kubectl create -f web-controller.yml
+  565  kubectl delete rc web-controller
+  566  kubectl create -f web-controller.yml
+  567  kubectl delete rc web-controller
+  568  kubectl create -f web-controller.yml
+  569  kubectl create -f web-services.yml
+  570  kubectl create -f web-service.yml
+  571  gcloud compute forwarding-rules list
+  572  kubectl get pods
+  573  kubectl config view
+  574  cd ..
+  575  cd mcc-2016-g07-p2/
+  576  docker build -t gcr.io/mcc-2016-g07-p2/backend:1 .
+  577  gcloud docker push gcr.io/mcc-2016-g07-p2/backend:1
+  578  cd ..
+  579  cd deploy/
+  580  kubectl create -f web-controller.yml
+  581  kubectl create -f web-service.yml
+  582  kubectl get pods
+  583  gcloud compute forwarding-rules list
+  584  cd mongo-k8s-sidecar/example/
+  585  make add-replica DISK_SIZE=200GB ZONE=us-central1-f
+  586  cd ..
+  587  cd mcc-2016-g07-p2/
+  588  docker build -t gcr.io/mcc-2016-g07-p2/backend:5 .
+  589  gcloud docker push gcr.io/mcc-2016-g07-p2/backend:5
+  590  kubectl rolling-update web-controller --image=gcr.io/mcc-2016-g07-p2/backend:5
+  591  kubectl get pods
+  592  kubectl config view
+  593  gcloud compute forwarding-rules list
+  594  kubectl get pods
+  595  kubectl get services
+  596  clear
+  597  kubectl get pods
+  598  cd ..
+  599  cd deploy/
+  600  cd mongo-k8s-sidecar/example/
+  601  make delete-replica
+  602  make add-replica DISK_SIZE=200GB ZONE=us-central1-f
+  603  kubectl rolling-update web-controller --image=gcr.io/mcc-2016-g07-p2/backend:6
+  604  cd ..
+  605  kubectl create -f web-controller.yml
+  606  kubectl create -f web-service.yml
+  607  kubectl rolling-update web-controller --image=gcr.io/mcc-2016-g07-p2/backend:6
+  608  kubectl create -f web-controller.yml
+  609  kubectl create -f web-service.yml
+  610  kubectl rolling-update web-controller --image=gcr.io/mcc-2016-g07-p2/backend:8
+  611  kubectl create -f web-controller.yml
+  612  kubectl create -f web-service.yml
+  613  kubectl get pods
+  614  kubectl get svc
+  615  kubectl logs web-controller
+  616  kubectl logs web-controller-5uhki
+  617  cd ..
+  618  git status
+  619  git reset --hard head
+  620  git status
+  621  git reset --hard head
+  622  git reset --hard HEAD
+  623  git status
+  624  git pull orign master
+  625  git pull origin master
+  626  npm install
+  627  npm start
+  628  docker build -t gcr.io/mcc-2016-g07-p2/backend:9 .
+  629  gcloud docker push gcr.io/mcc-2016-g07-p2/backend:9
+  630  cd ..
+  631  cd deploy/
+  632  kubectl create -f web-controller.yml
+  633  kubectl create -f web-services.yml
+  634  kubectl create -f web-service.yml
+  635  kubectl get pods
+  636  kubectl logs web-controller-54elm
+  637  kubectl get pods
+  638  kubectl logs web-controller-54elm
+  639  cd ..
+  640  cd mcc-2016-g07-p2/
+  641  docker build -t gcr.io/mcc-2016-g07-p2/backend:10 .
+  642  gcloud docker push gcr.io/mcc-2016-g07-p2/backend:10
+  643  cd ..
+  644  cd deploy/
+  645  kubectl rolling-update web-controller --image=gcr.io/mcc-2016-g07-p2/backend:10
+  646  kubectl get pods
+  647  gcloud compute forwarding-rules list
+  648  kubectl logs web-controller-bd6b47f6e08ce4c74be63b7b78b2b584-47jc2
+  649  history > history.txt

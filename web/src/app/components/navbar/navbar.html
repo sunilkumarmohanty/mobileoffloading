@@ -1,0 +1,13 @@
+<div class="navbar">
+  <div ng-if="vm.back"
+       ng-click="vm.goBack()"
+       class="left">
+    <i class="material-icons">arrow_back</i>
+  </div>
+  <div class="title">{{vm.title}}</div>
+  <div ng-if="vm.isLoggedIn()"
+       ng-click="vm.logout()"
+       class="right">
+    <img src="logout.svg">
+  </div>
+</div>

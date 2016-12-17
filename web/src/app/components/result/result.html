@@ -1,0 +1,152 @@
+<navbar back="'home'"></navbar>
+<div ng-if="vm.mode !== 'bench'" class="block">
+  <div class="section-title">Tools</div>
+  <div class="action-buttons">
+    <div class="button-holder button-holder-sm">
+      <div class="button" ng-click="vm.saveCurrentResultAsFile()">
+        <div class="text">Save as file</div>
+      </div>
+    </div>
+    <div class="button-holder button-holder-sm">
+      <div class="button" ng-click="vm.prepareRetake()">
+        <div class="text">Retake picture</div>
+      </div>
+    </div>
+  </div>
+</div>
+<div ng-if="vm.mode !== 'bench'" class="separator"></div>
+<div ng-if="vm.mode === 'bench'" class="block">
+  <div class="section-title">Benchmark results</div>
+  <div class="data-field">
+    <div class="data-label">Number of images</div>
+    <div class="data-value">{{vm.results.local.results.length}}</div>
+  </div>
+  <div class="data-field">
+    <div class="data-label">Image data exchanged with server</div>
+    <div class="data-value">{{vm.stats.remote.transfer.sum | bytes}}</div>
+  </div>
+  <div class="data-field">
+    <div class="data-label">Results</div>
+    <div class="data-value data-table">
+
+      <!-- single image -->
+      <div ng-if="vm.filelist.length === 1">
+        <div class="table-row">
+          <div class="table-cell"></div>
+          <div class="table-cell header">Local</div>
+          <div class="table-cell header">Remote</div>
+        </div>
+        <div class="table-row">
+          <div class="table-cell header">Total time elapsed</div>
+          <div class="table-cell">{{vm.results.local.processingTime | msToS}}</div>
+          <div class="table-cell">{{vm.results.remote.processingTime | msToS}}</div>
+        </div>
+        <div class="table-row">
+          <div class="table-cell header">Processing time</div>
+          <div class="table-cell">{{vm.stats.local.time.avg | msToS}}</div>
+          <div class="table-cell">{{vm.stats.remote.time.avg | msToS}}</div>
+        </div>
+        <div class="table-row">
+          <div class="table-cell header">Data exchanged</div>
+          <div class="table-cell">-</div>
+          <div class="table-cell">{{vm.stats.remote.transfer.avg | bytes}}</div>
+        </div>
+      </div>
+      <!-- end single image -->
+
+      <!-- multiple images -->
+      <div ng-if="vm.filelist.length > 1">
+        <div class="table-row">
+          <div class="table-cell"></div>
+          <div class="table-cell header">Local</div>
+          <div class="table-cell header">Remote</div>
+        </div>
+        <div class="table-row">
+          <div class="table-cell header">Total time elapsed</div>
+          <div class="table-cell">{{vm.results.local.processingTime | msToS}}</div>
+          <div class="table-cell">{{vm.results.remote.processingTime | msToS}}</div>
+        </div>
+        <div class="table-row">
+          <div class="table-cell header">Processing time</div>
+        </div>
+        <div class="table-row sub">
+          <div class="table-cell header"><span class="spacer"></span>Avg</div>
+          <div class="table-cell">{{vm.stats.local.time.avg | msToS}}</div>
+          <div class="table-cell">{{vm.stats.remote.time.avg | msToS}}</div>
+        </div>
+        <div class="table-row sub">
+          <div class="table-cell header"><span class="spacer"></span>St.dev</div>
+          <div class="table-cell">{{vm.stats.local.time.std | msToS}}</div>
+          <div class="table-cell">{{vm.stats.remote.time.std | msToS}}</div>
+        </div>
+        <div class="table-row sub">
+          <div class="table-cell header"><span class="spacer"></span>Min (index)</div>
+          <div class="table-cell">{{vm.stats.local.time.min | msToS}} ({{vm.stats.local.time.minInd}})</div>
+          <div class="table-cell">{{vm.stats.remote.time.min | msToS}} ({{vm.stats.remote.time.minInd}})</div>
+        </div>
+        <div class="table-row sub">
+          <div class="table-cell header"><span class="spacer"></span>Max (index)</div>
+          <div class="table-cell">{{vm.stats.local.time.max | msToS}} ({{vm.stats.local.time.maxInd}})</div>
+          <div class="table-cell">{{vm.stats.remote.time.max | msToS}} ({{vm.stats.remote.time.maxInd}})</div>
+        </div>
+        <div class="table-row">
+          <div class="table-cell header">Data exchanged</div>
+        </div>
+        <div class="table-row sub">
+          <div class="table-cell header"><span class="spacer"></span>Avg</div>
+          <div class="table-cell">-</div>
+          <div class="table-cell">{{vm.stats.remote.transfer.avg | bytes}}</div>
+        </div>
+        <div class="table-row sub">
+          <div class="table-cell header"><span class="spacer"></span>St.dev</div>
+          <div class="table-cell">-</div>
+          <div class="table-cell">{{vm.stats.remote.transfer.std | bytes}}</div>
+        </div>
+        <div class="table-row sub">
+          <div class="table-cell header"><span class="spacer"></span>Min (index)</div>
+          <div class="table-cell">-</div>
+          <div class="table-cell">{{vm.stats.remote.transfer.min | bytes}} ({{vm.stats.remote.transfer.minInd}})</div>
+        </div>
+        <div class="table-row sub">
+          <div class="table-cell header"><span class="spacer"></span>Max (index)</div>
+          <div class="table-cell">-</div>
+          <div class="table-cell">{{vm.stats.remote.transfer.max | bytes}} ({{vm.stats.remote.transfer.maxInd}})</div>
+        </div>
+      </div>
+      <!-- end multiple images -->
+
+    </div>
+  </div>
+</div>
+<div class="block">
+  <div class="section-title">Text result</div>
+  <div ng-if="vm.mode !== 'bench'" class="data-field">
+    <div class="data-value">{{vm.text}}</div>
+  </div>
+  <div ng-if="vm.mode === 'bench'" class="data-field">
+    <div class="data-label">Local result</div>
+    <div class="data-value">{{vm.localText}}</div>
+  </div>
+  <div ng-if="vm.mode === 'bench'" class="data-field">
+    <div class="data-label">Remote result</div>
+    <div class="data-value">{{vm.remoteText}}</div>
+  </div>
+</div>
+<div ng-if="vm.mode !== 'bench'" class="separator"></div>
+<div ng-if="vm.mode !== 'bench'" class="block">
+  <div class="section-title">Metadata</div>
+  <div class="data-field">
+    <div class="data-label">Created at</div>
+    <div class="data-value">{{vm.timestamp | date:'yyyy-MM-dd HH:mm:ss Z'}}</div>
+  </div>
+</div>
+<div class="separator"></div>
+<div class="block">
+  <div class="section-title">Source images</div>
+  <div class="data-field" ng-repeat="url in vm.fileUrls track by $index">
+    <div class="data-label">Image {{$index}}</div>
+    <div class="data-value data-image">
+      <img http-src="{{url | imgSrc}}">
+    </div>
+  </div>
+</div>

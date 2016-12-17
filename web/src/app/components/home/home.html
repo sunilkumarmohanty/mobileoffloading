@@ -1,0 +1,109 @@
+<navbar></navbar>
+
+<!-- new scan -->
+<div class="block">
+  <div class="mode-bg"
+       ng-class="{'blue-bg': vm.mode==='remote',
+                  'green-bg': vm.mode==='local',
+                  'red-bg': vm.mode==='bench'}">
+  </div>
+  <div class="section-title white">Scan mode</div>
+  <div class="mode-tabs">
+    <div class="tab"
+         ng-class="{'blue-bg': vm.mode==='remote',
+                    'selected': vm.mode==='remote'}"
+         ng-click="vm.mode = 'remote'">Remote</div>
+    <div class="tab"
+         ng-class="{'green-bg': vm.mode==='local',
+                    'selected': vm.mode==='local'}"
+         ng-click="vm.mode = 'local'">Local</div>
+    <div class="tab"
+         ng-class="{'red-bg': vm.mode==='bench',
+                    'selected': vm.mode==='bench'}"
+         ng-click="vm.mode = 'bench'">Bench</div>
+  </div>
+  <div class="p-10"></div>
+</div>
+<div class="separator"></div>
+<div class="block">
+  <div class="section-title">New scan</div>
+  <div class="action-buttons">
+    <div ng-show="vm.filelist" class="data-field">
+      <div class="data-label">Selected pictures</div>
+      <div class="data-value selected-previews">
+        <img ng-src="{{url}}" ng-repeat="url in vm.fileUrls">
+      </div>
+    </div>
+    <div ng-show="vm.filelist" class="p-10"></div>
+    <div ng-show="!vm.filelist"
+         class="button-holder button-holder-sm button-holder-full">
+      <div class="button">
+        <div class="icon"
+             ng-class="{'blue': vm.mode==='remote',
+                        'green': vm.mode==='local',
+                        'red': vm.mode==='bench'}">
+          <i class="material-icons">photo_library</i></div>
+        <div class="text">Select picture(s)</div>
+        <form id="select-form">
+          <label for="select-input">
+            <input type="file" accept="image/*" multiple="multiple" id="select-input">
+          </label>
+        </form>
+      </div>
+    </div>
+    <div ng-show="!vm.filelist"
+         class="button-holder button-holder-sm button-holder-full">
+      <div class="button">
+        <div class="icon"
+             ng-class="{'blue': vm.mode==='remote',
+                        'green': vm.mode==='local',
+                        'red': vm.mode==='bench'}">
+          <i class="material-icons">photo_camera</i></div>
+        <div class="text">Take picture</div>
+        <form id="capture-form">
+          <label for="capture-input">
+            <input type="file" accept="image/*" capture="camera" id="capture-input">
+          </label>
+        </form>
+      </div>
+    </div>
+    <div ng-show="vm.filelist.length > 0"
+         class="button-holder button-holder-sm button-holder-full">
+      <div class="button" ng-click="vm.clearInputs(); vm.clearFilelist();">
+        <div class="icon"
+             ng-class="{'blue': vm.mode==='remote',
+                        'green': vm.mode==='local',
+                        'red': vm.mode==='bench'}">
+          <i class="material-icons">cancel</i></div>
+        <div class="text">Cancel or retake</div>
+      </div>
+    </div>
+    <div ng-show="vm.filelist.length > 0"
+         class="button-holder button-holder-sm button-holder-full">
+      <div class="button" ng-click="vm.launchScan()">
+        <div class="icon"
+             ng-class="{'blue': vm.mode==='remote',
+                        'green': vm.mode==='local',
+                        'red': vm.mode==='bench'}">
+          <i class="material-icons">input</i></div>
+        <div class="text">Launch scan</div>
+      </div>
+    </div>
+    <div class="p-10"></div>
+  </div>
+</div>
+
+<!-- history -->
+<div class="separator"></div>
+<div class="block">
+  <div class="section-title">History</div>
+  <div ng-if="vm.loadingHistory">Loading history...</div>
+  <ul class="history">
+    <li ng-click="vm.selectHistoryItem(h)" ng-repeat="h in vm.history | orderBy:'createdAt':true">
+      <div class="thumbnail">
+        <img http-src="{{h.thumbnails[0] | imgSrc}}" alt="">
+      </div>
+      <div class="short">{{h.text | short:100}}</div>
+    </li>
+  </ul>
+</div>
